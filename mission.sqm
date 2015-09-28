@@ -11,7 +11,8 @@ class Mission
 		"A3_Modules_F_Curator_Curator",
 		"A3_Data_F_Curator_Virtual",
 		"a3_characters_f",
-		"A3_Modules_F"
+		"A3_Modules_F",
+		"3DEN"
 	};
 	addOnsAuto[]=
 	{
@@ -19,7 +20,8 @@ class Mission
 		"A3_Characters_F_OPFOR",
 		"a3_characters_f",
 		"A3_Characters_F_BLUFOR",
-		"A3_Modules_F_Curator_Curator",
+		"3DEN",
+		"a3_modules_f_curator_curator",
 		"A3_Structures_F_Mil_Flags",
 		"a3_map_altis"
 	};
@@ -29,10 +31,9 @@ class Mission
 		briefingName="BECTI BE 0.97 - Zerty 1.3.1.1 [preRelease]";
 		overviewText="By Benny - Adapted from OFP era MFCTI (Mike Melvin)";
 		resistanceWest=0;
-		startWeather=0;
+		timeOfChanges=24720;
 		startWind=0;
 		startWaves=0.099999994;
-		forecastWeather=0;
 		forecastWind=0;
 		forecastWaves=0.099999994;
 		forecastLightnings=0.099999994;
@@ -41,10 +42,8 @@ class Mission
 		day=21;
 		hour=5;
 		minute=0;
-		startFogBase=0.001;
-		forecastFogBase=0.001;
-		startFogDecay=0.0049999999;
-		forecastFogDecay=0.0049999999;
+		startFogDecay=0;
+		forecastFogDecay=0;
 	};
 	class Groups
 	{
@@ -117,7 +116,7 @@ class Mission
 					rank="COLONEL";
 					skill=0.60000002;
 					text="CTI_EAST_DEFAULT_GROUP";
-					init="this allowDamage false; (group this) setGroupID [""Default Team""];";
+					init="this allowDamage false; (group this) setGroupID [""Default Team""];this disableAI ""MOVE"";this disableAI ""AUTOTARGET"";this disableAI ""TARGET"";";
 				};
 				class Item2
 				{
@@ -413,7 +412,7 @@ class Mission
 					rank="COLONEL";
 					skill=0.60000002;
 					text="CTI_WEST_DEFAULT_GROUP";
-					init="this allowDamage false;(group this) setGroupID [""Default Team""];";
+					init="this allowDamage false;(group this) setGroupIDGlobal [""Default Team""];this disableAI ""MOVE"";this disableAI ""AUTOTARGET"";this disableAI ""TARGET"";";
 				};
 				class Item1
 				{
@@ -713,7 +712,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8450.8457,103.07779,25149.59};
+					position[]={8504.5732,33.204266,24831.566};
 					class args
 					{
 						items=4;
@@ -762,7 +761,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8458.9385,102.39907,25149.646};
+					position[]={8512.666,32.878616,24831.623};
 					class args
 					{
 						items=4;
@@ -810,7 +809,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8374.8662,98.898636,25124.645};
+					position[]={8428.5938,23.294439,24806.621};
 					id=54;
 					side="LOGIC";
 					vehicle="HeadlessClient_F";
@@ -830,7 +829,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8386.0635,104.55552,25124.42};
+					position[]={8439.791,22.404831,24806.396};
 					id=55;
 					side="LOGIC";
 					vehicle="HeadlessClient_F";
@@ -850,7 +849,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8398.3809,108.60904,25124.867};
+					position[]={8452.1084,23.873102,24806.844};
 					id=56;
 					side="LOGIC";
 					vehicle="HeadlessClient_F";
@@ -870,7 +869,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8407.7871,109.37775,25125.316};
+					position[]={8461.5146,24.935966,24807.293};
 					id=57;
 					side="LOGIC";
 					vehicle="HeadlessClient_F";
@@ -890,7 +889,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8365.0117,95.85244,25124.645};
+					position[]={8418.7393,24.140474,24806.621};
 					id=58;
 					side="LOGIC";
 					vehicle="HeadlessClient_F";
@@ -910,7 +909,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8389.7334,101.72545,25157.781};
+					position[]={8443.4609,37.155445,24839.758};
 					id=59;
 					side="LOGIC";
 					vehicle="Logic";
@@ -1477,7 +1476,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=60;
+		items=61;
 		class Item0
 		{
 			position[]={14491.973,9.0812836,5886.626};
@@ -1903,6 +1902,12 @@ class Mission
 			name="CTI_HELP";
 			type="Empty";
 			colorName="ColorUNKNOWN";
+		};
+		class Item60
+		{
+			position[]={8457.709,105.3129,25118.77};
+			name="CTI_TUTORIAL";
+			type="Empty";
 		};
 	};
 };

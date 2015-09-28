@@ -508,7 +508,7 @@ _s = _s + ["service-ammotruck"];
 _c = _c + ['B_UAV_02_CAS_F'];
 _p = _p + [''];
 _n = _n + [''];
-_o = _o + [10000];
+_o = _o + [7000];
 _t = _t + [35];
 _u = _u + [1];
 _f = _f + [CTI_FACTORY_AIR];
@@ -517,7 +517,7 @@ _s = _s + [""];
 _c = _c + ['B_UAV_02_F'];
 _p = _p + [''];
 _n = _n + [''];
-_o = _o + [30000];
+_o = _o + [20000];
 _t = _t + [35];
 _u = _u + [1];
 _f = _f + [CTI_FACTORY_AIR];
@@ -832,5 +832,24 @@ _u = _u + [0];
 _f = _f + [CTI_FACTORY_TOWN];
 _s = _s + [""];
 
+_c = _c + ['B_Mortar_01_F'];
+_p = _p + [''];
+_n = _n + [''];
+_o = _o + [5000];
+_t = _t + [10];
+_u = _u + [0];
+_f = _f + [CTI_FACTORY_TOWN];
+_s = _s + [""];
+
+
+
+_c = _c + ['B_Slingload_01_Cargo_F'];
+_p = _p + [''];
+_n = _n + [''];
+_o = _o + [0];
+_t = _t + [0];
+_u = _u + [0];
+_f = _f + [CTI_FACTORY_TOWN];
+_s = _s + [""];
 
 [_side, _faction, _c, _p, _n, _o, _t, _u, _f, _s] call compile preprocessFileLineNumbers "Common\Config\Units\Set_Units.sqf";

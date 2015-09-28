@@ -588,8 +588,8 @@ with missionNamespace do {
 
 	if (isNil 'CTI_UNITS_FATIGUE') then {CTI_UNITS_FATIGUE = 1};
 
-	if (isNil 'CTI_WEATHER_FAST') then {CTI_WEATHER_FAST = 6};
-
+	if (isNil 'CTI_WEATHER_FAST') then {CTI_WEATHER_FAST = 3};
+	if (isNil 'CTI_WEATHER_FAST_NIGTH') then {CTI_WEATHER_FAST_NIGTH = 1};
 
 
 			//--- bl1p ai skills
@@ -607,8 +607,6 @@ with missionNamespace do {
 	if (isNil 'CTI_PLAYER_REEQUIP') then {CTI_PLAYER_REEQUIP = 1}; //Done
 	if (isNil 'CTI_PLAYER_TOWN_RESPAWN') then {CTI_PLAYER_TOWN_RESPAWN = 1}; //Done
 	if (isNil 'CTI_WEATHER_INITIAL') then {CTI_WEATHER_INITIAL = 10};
-	if (isNil 'initialWeatherParam') then {initialWeatherParam = 4};
-	if (isNil 'CTI_WEATHER_DYNAMIC') then {CTI_WEATHER_DYNAMIC = 1}; //Done
 	if (isNil 'CTI_GAMEPLAY_MISSILES_RANGE') then {CTI_GAMEPLAY_MISSILES_RANGE = 3000}; //Done
 	if (isNil 'CTI_GAMEPLAY_3P') then {CTI_GAMEPLAY_3P = -1}; //Done
 	if (isNil 'CTI_GAMEPLAY_REARM_AMMO') then {CTI_GAMEPLAY_REARM_AMMO = 1}; //Done

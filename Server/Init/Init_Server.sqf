@@ -53,10 +53,11 @@ call compile preprocessFileLineNumbers "Server\Functions\FSM\Functions_FSM_Repai
 call compile preprocessFileLineNumbers "Server\Functions\FSM\Functions_FSM_UpdateAI.sqf";
 call compile preprocessFileLineNumbers "Server\Functions\FSM\Functions_FSM_UpdateCommander.sqf";
 
-["Initialize"] call BIS_fnc_dynamicGroups
+["Initialize"] call BIS_fnc_dynamicGroups;
 
 
 execVM "Server\Init\Init_Prison.sqf";
+execVM "Addons\Strat_mode\Functions\TUTORIAL_Init.sqf";
 
 CTI_Structure_Lock=False;
 CTI_Worker_Lock=False;
@@ -150,7 +151,7 @@ while {! (((getMarkerPos format ["HELO_START_%1", _i])select 0) == 0)} do
 	//--- Create the defensive teams if needed
 	if (CTI_BASE_DEFENSES_AUTO_LIMIT > 0) then {
 		_defense_team = createGroup _side;
-		_defense_team setGroupID ["Defense Team"];
+		_defense_team setGroupIDGlobal ["Defense Team"];
 		_logic setVariable ["cti_defensive_team", _defense_team,true];
 	};
 

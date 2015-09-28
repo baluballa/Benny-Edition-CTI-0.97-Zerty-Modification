@@ -23,8 +23,9 @@
 (vehicle player) setVariable ["CTI_UID",getPlayerUID player,true];
 
 player setcaptive false;
-0 call HUD_PBar_stop;
-player addaction ["<t color='#86F078'>Online Help</t>",'createdialog "CTI_RscTabletOnlineHelpMenu";', [], -99];
+if (! isNil "HUD_PBar_stop" ) then {0 call HUD_PBar_stop};
+
+//player addaction ["<t color='#86F078'>Online Help</t>",'createdialog "CTI_RscTabletOnlineHelpMenu";', [], -99];
 //titleCut["","BLACK IN",1];
 
 player addEventHandler ["InventoryOpened",{
@@ -47,3 +48,7 @@ if (CTI_SM_FAR == 1) then {
 	};
 };
 
+CTI_P_Repairing = false;
+
+
+player setVariable ["CTI_UID",getPlayerUID player, true];

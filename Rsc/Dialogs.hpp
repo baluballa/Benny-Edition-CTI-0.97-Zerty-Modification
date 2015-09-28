@@ -48,6 +48,7 @@ class CTI_RscInteraction {
 			h = "SafeZoneH * 0.05";
 
 			color[] = {1,0,0,1};
+			colorDisabled[] = {1,0,0,1};
 			colorActive[] = {1,1,1,0.7};
 			colorBackground[] = {0.6, 0.8392, 0.4706, 0.7};
 			colorBackgroundSelected[] = {0.6, 0.8392, 0.4706, 0.7};
@@ -267,6 +268,13 @@ class CTI_RscInteraction {
 			text = "Rsc\Pictures\i_driver.paa";
 			action = "['OnPilot'] call compile preprocessFileLineNumbers 'Addons\Strat_mode\Tablet\Events_UI_Interact.sqf'";
 			toolTip="Getin as Pilot";
+		};
+		class CTI_Icon_ExitT : CTI_Icon_fpk {
+			idc = 511033;
+			x = "SafeZoneX + SafeZoneW*0.55";
+			text = "Rsc\Pictures\icon_load.paa";
+			action = "['OnExitT'] call compile preprocessFileLineNumbers 'Addons\Strat_mode\Tablet\Events_UI_Interact.sqf'";
+			toolTip="Exit Tutorial";
 		};
 	};
 };
@@ -1364,6 +1372,7 @@ class CTI_RscTabletPurchaseMenu {
 			h = "SafeZoneH * 0.041";
 
 			color[] = {0.75,0.75,0.75,0.7};
+			colorDisabled[] = {1,0,0,1};
 			colorActive[] = {1,1,1,0.7};
 			colorBackground[] = {0.6, 0.8392, 0.4706, 0.7};
 			colorBackgroundSelected[] = {0.6, 0.8392, 0.4706, 0.7};
@@ -2517,7 +2526,7 @@ class CTI_RscGearMenu {
 		};
 
 		//--- Actual controls
-		class CTI_Gear_Control_Items_Purchase : RscListNBox {
+		class CTI_Gear_Control_Items_Purchase : RscListBox {
 			idc = 70108;
 
 			x = "SafeZoneX + (SafeZoneW * 0.01)";
@@ -2531,7 +2540,7 @@ class CTI_RscGearMenu {
 			colorText[] = {1,1,1,1};
 			colorBackground[] = {0,0,0,0};
 			itemBackground[] = {1,1,1,0.1};
-			columns[] = {0.26, 0.001};
+			//columns[] = {0.26, 0.001};
 
 			canDrag = 1;
 
@@ -2582,6 +2591,7 @@ class CTI_RscGearMenu {
 			colorFocused[] = {0, 0, 0, 0};
 			color[] = {0.85, 0.85, 0.85, 1};
 			colorText[] = {0.85, 0.85, 0.85, 1};
+			colorDisabled[] = {1,0,0,1};
 			colorActive[] = {1, 1, 1, 1};
 
 			canDrag = 1;
@@ -2928,6 +2938,7 @@ class CTI_RscGearMenu {
 			h = "SafeZoneH * 0.08";
 
 			color[] = {0.75,0.75,0.75,0.7};
+			colorDisabled[] = {1,0,0,1};
 			colorActive[] = {1,1,1,0.7};
 			colorBackground[] = {0.6, 0.8392, 0.4706, 0.7};
 			colorBackgroundSelected[] = {0.6, 0.8392, 0.4706, 0.7};
@@ -3005,7 +3016,7 @@ class CTI_RscGearMenu {
 
 			text = "Delete Template";
 			tooltip = "Remove an existing template";
-			action = "['onTemplateDeletion', lnbCurSelRow 70108] call compile preprocessFileLineNumbers 'Client\Events\Events_UI_GearMenu.sqf'";
+			action = "['onTemplateDeletion', lbCurSel 70108] call compile preprocessFileLineNumbers 'Client\Events\Events_UI_GearMenu.sqf'";
 		};
 		class CTI_Gear_Control_Buy : CTI_Gear_Control_CreateTemplate {
 			idc = 70403;
