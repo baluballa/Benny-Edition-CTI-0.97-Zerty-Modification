@@ -271,6 +271,8 @@ CTI_REQUESTS_TIMEOUT = 160; //--- A request will vanish after x seconds if left 
  * Note that the sub IDs are not defined at the same location
  */
 
+ CTI_GEAR_MOBILE_COOLOFF= 4*60;
+
 //--- Gear: Config ID
 CTI_TYPE_RIFLE = 1;
 CTI_TYPE_PISTOL = 2;
@@ -544,6 +546,9 @@ CTI_GC_DELAY_STATIC = 80;
 CTI_GC_DELAY_BUILDING = 30;
 
 // --- Zerty was here
+
+CTI_HALO_COOLDOWN = 20*60;
+CTI_HALO_LASTTIME=-CTI_HALO_COOLDOWN;
 CTI_HALO_ALTITUDE = 3000;
 CTI_HALO_RATIO = 3;
 CTI_UPGRADE_RATIO=if !(MADE_FOR_STRATIS) then {7} else {2};
@@ -647,7 +652,7 @@ with missionNamespace do {
 	if (isnil "CTI_BUY_RESTRICT_LEADER") then {CTI_BUY_RESTRICT_LEADER = 0};
 	if (isnil "CTI_GROUP_AWARD_MULT") then {CTI_GROUP_AWARD_MULT = 0};
 	if (isnil "CTI_GROUP_LEADER_RESP") then {CTI_GROUP_LEADER_RESP = 0};
-	if (isnil "CTI_PERSISTANT") then {CTI_PERSISTANT = 0};
+	if (isnil "CTI_PERSISTANT") then {CTI_PERSISTANT = 1};
 
 	if (isNil 'CTI_AI_TEAMS_NB') then { CTI_AI_TEAMS_NB = 10};
 	if (isNil 'CTI_WEATHER_ALLOWRAIN') then {CTI_WEATHER_ALLOWRAIN = 0};
