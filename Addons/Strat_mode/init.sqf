@@ -97,7 +97,35 @@ if (CTI_IsServer) then {
 	0 execFSM "Addons\Strat_mode\FSM\TEAMSTACK_count.fsm";
 	//PVF
 	with missionNamespace do {
+		CTI_PVF_Server_Transfer_funds ={
+			_group_from= _this select 0;
+			_fund_from= _this select 1;
+			_group_to= _this select 2;
+			_value= _this select 3;
+			_com= (side _group_from) call CTI_CO_FNC_GetSideCommander;
+			if (((_group_from getvariable "cti_funds") - (missionNamespace getVariable format ["CTI_ECONOMY_STARTUP_FUNDS_%1", side _group_from]) < _value && _group_from != _com )|| (_group_from == _com && ((side _group_from) call CTI_CO_FNC_GetFundsCommander) < _value )  ) exitWith {};
+			if (_group_to != _com) then {[_group_to, side _group_to, _value] call CTI_CO_FNC_ChangeFunds;
+			} else {
+				[(side _group_to), _value] call CTI_CO_FNC_ChangeFundsCommander;
+			};
+			if (_group_from != _com) then {[_group_from, side _group_from,  - _value] call CTI_CO_FNC_ChangeFunds;
+			} else {
+				[(side _group_from), - _value] call CTI_CO_FNC_ChangeFundsCommander;
+			};
 
+
+			if (isPlayer leader _group_from) then {
+				_uid=getPlayerUID (leader _group_from );
+				if !(isNil "_get") then {
+					_get = missionNamespace getVariable format["CTI_SERVER_CLIENT_%1", _uid];
+					_get set [2,floor (_group_from getVariable "cti_funds")];
+					missionNamespace setVariable [format["CTI_SERVER_CLIENT_%1", _x],_get];
+				};
+			};
+			if (isPlayer leader _group_to) then {
+				[["CLIENT", leader _group_to], "Client_OnMessageReceived", ["funds-transfer", [_value ,(_group_from)]]] call CTI_CO_FNC_NetSend;
+			};
+		};
 
 		CTI_PVF_Server_Mortars_Towns = {
 			_req_p=_this;
@@ -163,7 +191,7 @@ if (CTI_IsClient) then {
 	//PFV
 	with missionNamespace do {
 		//print a message
-		CTI_PVF_SM_message={ HUD_NOTIFICATIONS pushBack [format ["Strat: %1 ",_this],time+10000,"ffffff"] };
+		CTI_PVF_SM_message={ HUD_NOTIFICATIONS pushBack [format [localize "STR_Strat",_this],time+10000,"ffffff"] };
 
 
 		// Connect Marker 2 positions (POs1,POs2, color, offset)
@@ -203,7 +231,7 @@ if (CTI_IsClient) then {
 			_town=_x;
 			_marker = createMarkerLocal [format ["cti_town_mortar_%1", _town], getPos _town];
 			_marker setMarkerTypeLocal "mil_dot";
-			_marker setMarkerTextLocal format ["Mortar Team - %1",(_town getVariable "cti_town_name")];
+			_marker setMarkerTextLocal format [localize "STR_MortarTeam",(_town getVariable "cti_town_name")];
 			_marker setMarkerColorLocal "ColorGreen";
 			_marker setMarkerSizeLocal [0.5,0.5];
 			_marker setMarkerAlphaLocal 0;
